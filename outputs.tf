@@ -1,4 +1,4 @@
 output "resource_id" {
   description = "Maintenance Configuration resource id."
-  value       = azurerm_maintenance_configuration.this.id
+  value       = azapi_resource.azurerm_maintenance_configuration.id
 }

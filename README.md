@@ -4,13 +4,13 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.9 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.115, < 5.0.0 |
+| <a name="requirement_azapi"></a> [azapi](#requirement\_azapi) | >= 2.0.1, < 3.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.16.0 |
+| <a name="provider_azapi"></a> [azapi](#provider\_azapi) | 2.2.0 |
 
 ## Modules
 
@@ -20,7 +20,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [azurerm_maintenance_configuration.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/maintenance_configuration) | resource |
+| [azapi_resource.azurerm_maintenance_configuration](https://registry.terraform.io/providers/azure/azapi/latest/docs/resources/resource) | resource |
+| [azapi_client_config.current](https://registry.terraform.io/providers/azure/azapi/latest/docs/data-sources/client_config) | data source |
 
 ## Inputs
 
@@ -43,6 +44,7 @@ No modules.
 | <a name="input_time_zone"></a> [time\_zone](#input\_time\_zone) | (Optional) The time zone for the maintenance window, defaults to 'GMT Standard Time'. | `string` | `"GMT Standard Time"` | no |
 | <a name="input_visibility"></a> [visibility](#input\_visibility) | (Optional) The visibility of the maintenance configuration. | `string` | `"Custom"` | no |
 | <a name="input_windows_classifications_to_include"></a> [windows\_classifications\_to\_include](#input\_windows\_classifications\_to\_include) | (Optional) List of Classification category of patches to be patched. Possible values are Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools and Updates. | `list(string)` | <pre>[<br/>  "Critical",<br/>  "Security"<br/>]</pre> | no |
+| <a name="input_windows_exclude_kbs_requiring_reboot"></a> [windows\_exclude\_kbs\_requiring\_reboot](#input\_windows\_exclude\_kbs\_requiring\_reboot) | Exclude patches which need reboot | `bool` | `false` | no |
 | <a name="input_windows_kb_ids_to_exclude"></a> [windows\_kb\_ids\_to\_exclude](#input\_windows\_kb\_ids\_to\_exclude) | (Optional) List of KB numbers to be excluded from patching. | `list(string)` | `[]` | no |
 | <a name="input_windows_kb_ids_to_include"></a> [windows\_kb\_ids\_to\_include](#input\_windows\_kb\_ids\_to\_include) | (Optional) List of KB numbers to be included for patching. | `list(string)` | `[]` | no |
 
