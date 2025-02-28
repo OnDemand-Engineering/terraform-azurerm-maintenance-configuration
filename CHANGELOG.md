@@ -1,3 +1,9 @@
+## v1.2.0 (2025-02-28)
+
+### Feat
+
+- enhance bump version workflow with GitHub App token generation and release step (#2)
+
 ## v1.1.0 (2025-02-28)
 
 ### Feat
