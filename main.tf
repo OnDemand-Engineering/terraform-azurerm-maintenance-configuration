@@ -8,7 +8,7 @@ resource "azapi_resource" "azurerm_maintenance_configuration" {
 
   body = {
     properties = {
-      extensionProperties = var.extensionProperties
+      extensionProperties = var.extension_properties
       installPatches = var.scope == "InGuestPatch" ? {
         linuxParameters = {
           classificationsToInclude  = var.linux_classifications_to_include

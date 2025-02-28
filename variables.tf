@@ -38,7 +38,7 @@ variable "visibility" {
   }
 }
 
-variable "extensionProperties" {
+variable "extension_properties" {
   type        = map(string)
   description = "(Optional) The extension properties."
 }
