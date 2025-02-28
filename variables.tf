@@ -22,8 +22,8 @@ variable "scope" {
   default     = "InGuestPatch"
 
   validation {
-    condition     = can(regexall("Extension|Host|InGuestPatch|OSImage|SQLDB|SQLManagedInstance", var.scope))
-    error_message = "The 'scope' must be one of 'Extension', 'Host', 'InGuestPatch', 'OSImage', 'SQLDB', or 'SQLManagedInstance'."
+    condition     = can(regexall("Extension|Host|InGuestPatch|OSImage|Resource|SQLDB|SQLManagedInstance", var.scope))
+    error_message = "The 'scope' must be one of 'Extension', 'Host', 'InGuestPatch', 'OSImage', 'Resource', 'SQLDB', or 'SQLManagedInstance'."
   }
 }
 
@@ -33,8 +33,8 @@ variable "visibility" {
   default     = "Custom"
 
   validation {
-    condition     = var.visibility == "Custom"
-    error_message = "The 'visibility' must be 'Custom'."
+    condition     = var.visibility == "Custom" || var.visibility == "Public"
+    error_message = "The 'visibility' must be 'Custom' or 'Public'."
   }
 }
 
@@ -109,6 +109,12 @@ variable "windows_classifications_to_include" {
     condition     = alltrue([for classification in var.windows_classifications_to_include : can(regexall("Critical|Security|UpdateRollup|FeaturePack|ServicePack|Definition|Tools|Updates", classification))])
     error_message = "Each 'windows_classifications_to_include' must be one of 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', or 'Updates'."
   }
+}
+
+variable "windows_exclude_kbs_requiring_reboot" {
+  type        = bool
+  description = "Exclude patches which need reboot"
+  default     = false
 }
 
 variable "linux_classifications_to_include" {
