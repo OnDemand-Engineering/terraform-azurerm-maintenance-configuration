@@ -29,7 +29,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_duration"></a> [duration](#input\_duration) | The duration in the format H:MM, which can either be null or between 01:30 and 03:55. | `string` | `"03:55"` | no |
 | <a name="input_expiration_date_time"></a> [expiration\_date\_time](#input\_expiration\_date\_time) | (Optional) The expiration date and time, which can either be null or follow the format YYYY-MM-DD hh:mm. | `string` | `null` | no |
-| <a name="input_in_guest_user_patch_mode"></a> [in\_guest\_user\_patch\_mode](#input\_in\_guest\_user\_patch\_mode) | (Optional) The user patch mode for in-guest patching. Possible values are User and Platform. | `string` | `"User"` | no |
+| <a name="input_extensionProperties"></a> [extensionProperties](#input\_extensionProperties) | (Optional) The extension properties. | `map(string)` | n/a | yes |
 | <a name="input_linux_classifications_to_include"></a> [linux\_classifications\_to\_include](#input\_linux\_classifications\_to\_include) | (Optional) List of Classification category of patches to be patched. Possible values are Critical, Security and Other. | `list(string)` | <pre>[<br/>  "Critical",<br/>  "Security"<br/>]</pre> | no |
 | <a name="input_linux_package_names_to_exclude"></a> [linux\_package\_names\_to\_exclude](#input\_linux\_package\_names\_to\_exclude) | (Optional) List of package names to be excluded from patching. | `list(string)` | `[]` | no |
 | <a name="input_linux_package_names_to_include"></a> [linux\_package\_names\_to\_include](#input\_linux\_package\_names\_to\_include) | (Optional) List of package names to be included for patching. | `list(string)` | `[]` | no |
