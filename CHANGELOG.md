@@ -1,3 +1,9 @@
+## v1.2.5 (2025-02-28)
+
+### Fix
+
+- update installPatches logic to handle InGuestPatch scope conditionally (#7)
+
 ## v1.2.4 (2025-02-28)
 
 ### Fix
