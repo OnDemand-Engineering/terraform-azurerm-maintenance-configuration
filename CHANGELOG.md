@@ -1,3 +1,9 @@
+## v1.2.3 (2025-02-28)
+
+### Refactor
+
+- remove deprecated maintenance configuration and add extension properties (#5)
+
 ## v1.2.2 (2025-02-28)
 
 ### Fix
