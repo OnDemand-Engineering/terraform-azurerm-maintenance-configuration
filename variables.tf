@@ -38,15 +38,9 @@ variable "visibility" {
   }
 }
 
-variable "in_guest_user_patch_mode" {
-  type        = string
-  description = "(Optional) The user patch mode for in-guest patching. Possible values are User and Platform."
-  default     = "User"
-
-  validation {
-    condition     = (var.scope != "InGuestPatch" && var.in_guest_user_patch_mode == null) || (var.scope == "InGuestPatch" && (var.in_guest_user_patch_mode == "User" || var.in_guest_user_patch_mode == "Platform"))
-    error_message = "The 'in_guest_user_patch_mode' must be one of 'User' or 'Platform' if scope is 'InGuestPatch', otherwise it must be null."
-  }
+variable "extensionProperties" {
+  type        = map(string)
+  description = "(Optional) The extension properties."
 }
 
 variable "start_date_time" {
