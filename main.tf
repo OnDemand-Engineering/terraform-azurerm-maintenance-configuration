@@ -9,7 +9,7 @@ resource "azapi_resource" "azurerm_maintenance_configuration" {
   body = {
     properties = {
       extensionProperties = var.extensionProperties
-      installPatches = {
+      installPatches = var.scope == "InGuestPatch" ? {
         linuxParameters = {
           classificationsToInclude  = var.linux_classifications_to_include
           packageNameMasksToExclude = var.linux_package_names_to_exclude
@@ -22,7 +22,7 @@ resource "azapi_resource" "azurerm_maintenance_configuration" {
           kbNumbersToExclude        = var.windows_kb_ids_to_exclude
           kbNumbersToInclude        = var.windows_kb_ids_to_include
         }
-      }
+      } : null
       maintenanceScope = var.scope
       maintenanceWindow = {
         duration           = var.duration
