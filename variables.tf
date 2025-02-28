@@ -85,12 +85,12 @@ variable "recur_every" {
 
 variable "reboot_setting" {
   type        = string
-  description = "(Optional) Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are Always, IfRequired and Never."
+  description = "(Optional) Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are Always, IfRequired, Never, or null."
   default     = "IfRequired"
 
   validation {
-    condition     = var.reboot_setting == "Always" || var.reboot_setting == "IfRequired" || var.reboot_setting == "Never"
-    error_message = "The 'reboot_setting' must be one of 'Always', 'IfRequired', or 'Never'."
+    condition     = var.reboot_setting == "Always" || var.reboot_setting == "IfRequired" || var.reboot_setting == "Never" || var.reboot_setting == null
+    error_message = "The 'reboot_setting' must be one of 'Always', 'IfRequired', 'Never', or null."
   }
 }
 
@@ -100,7 +100,7 @@ variable "windows_classifications_to_include" {
   default     = ["Critical", "Security"]
 
   validation {
-    condition     = alltrue([for classification in var.windows_classifications_to_include : can(regexall("Critical|Security|UpdateRollup|FeaturePack|ServicePack|Definition|Tools|Updates", classification))])
+    condition     = alltrue([for classification in var.windows_classifications_to_include : can(regexall("Critical|Security|UpdateRollup|FeaturePack|ServicePack|Definition|Tools|Updates", classification))]) || length(var.windows_classifications_to_include) == 0
     error_message = "Each 'windows_classifications_to_include' must be one of 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', or 'Updates'."
   }
 }
@@ -117,7 +117,7 @@ variable "linux_classifications_to_include" {
   default     = ["Critical", "Security"]
 
   validation {
-    condition     = alltrue([for classification in var.linux_classifications_to_include : can(regexall("Critical|Security|Other", classification))])
+    condition     = alltrue([for classification in var.linux_classifications_to_include : can(regexall("Critical|Security|Other", classification))]) || length(var.linux_classifications_to_include) == 0
     error_message = "Each 'linux_classifications_to_include' must be one of 'Critical', 'Security', or 'Other'."
   }
 }
