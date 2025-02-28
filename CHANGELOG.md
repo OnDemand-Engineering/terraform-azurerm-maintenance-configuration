@@ -1,3 +1,9 @@
+## v1.2.4 (2025-02-28)
+
+### Fix
+
+- update validation for reboot_setting and classification variables to allow null and empty values (#6)
+
 ## v1.2.3 (2025-02-28)
 
 ### Refactor
