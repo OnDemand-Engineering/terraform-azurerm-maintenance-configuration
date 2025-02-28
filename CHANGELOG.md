@@ -1,3 +1,9 @@
+## v1.2.6 (2025-02-28)
+
+### Fix
+
+- rename extensionProperties variable to extension_properties for consistency (#8)
+
 ## v1.2.5 (2025-02-28)
 
 ### Fix
