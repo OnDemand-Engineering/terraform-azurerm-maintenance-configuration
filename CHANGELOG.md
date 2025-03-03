@@ -1,3 +1,9 @@
+## v1.3.0 (2025-03-03)
+
+### Feat
+
+- add maintenance configuration assignment resource and resource_ids variable (#9)
+
 ## v1.2.6 (2025-02-28)
 
 ### Fix
