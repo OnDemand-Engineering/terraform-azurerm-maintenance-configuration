@@ -38,6 +38,22 @@ resource "azapi_resource" "azurerm_maintenance_configuration" {
   tags = var.tags
 }
 
+resource "azapi_resource" "azurerm_maintenance_configuration_assignment" {
+  for_each = var.resource_ids
+
+  type = "Microsoft.Maintenance/configurationAssignments@2023-10-01-preview"
+  name = basename(each.value)
+
+  parent_id = each.value
+  location  = var.location
+  body = {
+    properties = {
+      maintenanceConfigurationId = lower(azapi_resource.azurerm_maintenance_configuration.id)
+      resourceId                 = lower(each.value)
+    }
+  }
+}
+
 moved {
   from = azurerm_maintenance_configuration.this
   to   = azapi_resource.azurerm_maintenance_configuration
