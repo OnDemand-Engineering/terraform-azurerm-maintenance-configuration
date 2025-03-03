@@ -18,7 +18,7 @@ repos:
     -   id: pre-commit-update
 
 -   repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.3.0
+    rev: v4.4.1
     hooks:
     -   id: commitizen
 

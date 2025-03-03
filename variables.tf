@@ -146,6 +146,12 @@ variable "linux_package_names_to_exclude" {
   default     = []
 }
 
+variable "resource_ids" {
+  type        = set(string)
+  description = "(Optional) List of resource ids to assign to the maintenance configuration"
+  default     = []
+}
+
 variable "tags" {
   type        = map(string)
   default     = null

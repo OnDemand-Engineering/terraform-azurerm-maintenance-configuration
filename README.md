@@ -21,6 +21,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [azapi_resource.azurerm_maintenance_configuration](https://registry.terraform.io/providers/azure/azapi/latest/docs/resources/resource) | resource |
+| [azapi_resource.azurerm_maintenance_configuration_assignment](https://registry.terraform.io/providers/azure/azapi/latest/docs/resources/resource) | resource |
 | [azapi_client_config.current](https://registry.terraform.io/providers/azure/azapi/latest/docs/data-sources/client_config) | data source |
 
 ## Inputs
@@ -38,6 +39,7 @@ No modules.
 | <a name="input_reboot_setting"></a> [reboot\_setting](#input\_reboot\_setting) | (Optional) Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are Always, IfRequired, Never, or null. | `string` | `"IfRequired"` | no |
 | <a name="input_recur_every"></a> [recur\_every](#input\_recur\_every) | (Optional) The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | (Required) The resource group name of the resource group where the vm resources will be deployed. | `string` | n/a | yes |
+| <a name="input_resource_ids"></a> [resource\_ids](#input\_resource\_ids) | (Optional) List of resource ids to assign to the maintenance configuration | `set(string)` | `[]` | no |
 | <a name="input_scope"></a> [scope](#input\_scope) | (Optional) The scope of the maintenance configuration. | `string` | `"InGuestPatch"` | no |
 | <a name="input_start_date_time"></a> [start\_date\_time](#input\_start\_date\_time) | (Required) Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags to be assigned to this resource | `map(string)` | `null` | no |
